@@ -1,0 +1,15 @@
+# idea
+*.iml
+.idea/*
+!.idea/codeStyles/
+!.idea/runConfigurations/
+
+# build
+build/
+out/
+
+# apple bs
+.DS_Store
+
+# gradle
+.gradle/
