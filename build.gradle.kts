@@ -52,7 +52,7 @@ tasks {
     
   withType(KotlinCompile::class) {
     kotlinOptions {
-      jvmTarget = "11"
+      jvmTarget = "1.8"
     }
   }
 }
