@@ -13,3 +13,6 @@ out/
 
 # gradle
 .gradle/
+
+# local android sdk/ndk settings
+local.properties
