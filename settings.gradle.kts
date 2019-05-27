@@ -1,5 +1,9 @@
 rootProject.name = "multiplatform-fizzbuzz"
 
+val knownPlugins = mapOf(
+  "com.android.application" to "com.android.tools.build:gradle"
+)
+
 pluginManagement {
   repositories {
     gradlePluginPortal()
@@ -8,8 +12,8 @@ pluginManagement {
 
   resolutionStrategy {
     eachPlugin {
-      if (requested.id.id == "org.jetbrains.kotlin.plugin.serialization") {
-        useModule("org.jetbrains.kotlin:kotlin-serialization:${requested.version}")
+      knownPlugins["${requested.id}"]?.let { module ->
+        useModule("$module:${requested.version}")
       }
     }
   }

@@ -13,17 +13,3 @@ fun buzz(n: Int): String = when {
 fun fizzbuzz(n: Int): String {
   return (fizz(n) + buzz(n)).ifEmpty { "$n" }
 }
-
-fun Int.toStringAsFunction(): String {
-  return toString()
-}
-
-fun Int.toStringAsExpansion(): String {
-  return "$this"
-}
-
-fun main() {
-  (1..100).forEach {
-    println(fizzbuzz(it))
-  }
-}
