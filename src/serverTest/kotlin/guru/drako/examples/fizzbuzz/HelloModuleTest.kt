@@ -13,7 +13,7 @@ class HelloModuleTest {
     withTestApplication({
       helloModule()
     }) {
-      handleRequest(HttpMethod.Get, "/").apply {
+      handleRequest(HttpMethod.Get, "/hello").apply {
         assertEquals(
           expected = HttpStatusCode.OK,
           actual = response.status()

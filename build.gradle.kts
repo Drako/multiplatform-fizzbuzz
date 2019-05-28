@@ -9,6 +9,7 @@ repositories {
 }
 
 object Versions {
+  const val JACKSON = "2.9.9"
   const val JUNIT = "5.4.2"
   const val KTOR = "1.2.0"
   const val LOGBACK = "1.2.3"
@@ -82,8 +83,14 @@ kotlin {
 
           implementation("io.ktor:ktor-server-tomcat:${Versions.KTOR}")
           implementation("io.ktor:ktor-html-builder:${Versions.KTOR}")
+          implementation("io.ktor:ktor-jackson:${Versions.KTOR}")
 
           implementation("ch.qos.logback:logback-classic:${Versions.LOGBACK}")
+
+          implementation("com.fasterxml.jackson.core:jackson-core:${Versions.JACKSON}")
+          implementation("com.fasterxml.jackson.core:jackson-databind:${Versions.JACKSON}")
+          implementation("com.fasterxml.jackson.core:jackson-annotations:${Versions.JACKSON}")
+          implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.JACKSON}")
         }
       }
 
@@ -107,7 +114,9 @@ tasks {
     version = "5.4.1"
   }
 
-  "consoleTest"(Test::class) {
-    useJUnitPlatform()
+  sequenceOf("consoleTest", "serverTest").forEach { 
+    it(Test::class) {
+      useJUnitPlatform()
+    }
   }
 }
